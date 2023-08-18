@@ -249,7 +249,7 @@ async fn callback_handler(bot: Bot, q: CallbackQuery, changing: Arc<Mutex<String
             let text_from_file = &std::fs::read_to_string(format!("{}\\{}", NOTES_FOLDER, text.clone())).unwrap_or_default();
 
             if !text_from_file.is_empty() {
-                let message = String::from(format!("*Ваша заметка📝:*\n*Тег:* {}\n*Заголовок:* {}\n*Текст:*\n```{}```",
+                let message = String::from(format!("*Ваша заметка📝:*\n*Тег:* {}\n*Заголовок:* {}\n*Текст:*\n`{}`",
                     escape_markdown_special_chars(&data_of_notes[0]),
                     escape_markdown_special_chars(&data_of_notes[1].replace(".txt", "")),
                     escape_markdown_special_chars(text_from_file)
